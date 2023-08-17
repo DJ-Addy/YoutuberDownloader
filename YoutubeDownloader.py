@@ -37,7 +37,7 @@ def download_high_quality_video(url, output_path='./'):
                 downloaded_size = os.path.getsize(temp_filepath)
                 progress_bar.update(downloaded_size - progress_bar.n)
 
-            # Close progress bar and wait until it reaches 100%
+            # wait until it reaches 100%
 
             while progress_bar.n < total_size:
                 time.sleep(1)
@@ -47,7 +47,9 @@ def download_high_quality_video(url, output_path='./'):
             final_filename = os.path.splitext(temp_filename)[0] + '.mp4'
             final_filepath = os.path.join(output_path, final_filename)
             os.rename(temp_filepath, final_filepath)
-
+           
+            #Close progress bar 
+            
             print("Download successful!")
             progress_bar.close()
         else:
